@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>fj21-agenda</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet> <!-- Criando a primeira servlet -->
+  	<servlet-name>servletOiMundo</servlet-name> <!-- Nome da servlet -->
+  	<servlet-class>
+  		br.com.caelum.servlet.OiMundo <!-- Classe da servlet que foi criada -->
+  	</servlet-class>
+  </servlet>  
+  <servlet-mapping> <!-- Mapeamento da url que faz a requisição para a servlet  -->
+  	<servlet-name>servletOiMundo</servlet-name>
+  	<url-pattern>/oi</url-pattern>
+  </servlet-mapping>
+  <!-- Todo esse processo de mapeamento direto no web.xml do Tomcat é desnecessário se utilizarmos 
+  annotaion do @WebServlet -->
+  
+  <error-page> <!-- Tratando exceptions do java -->
+  	<exception-type>java.lang.Exception</exception-type>
+  	<location>/erro.html</location>
+  </error-page>
+  
+  <error-page> <!-- Tratando erro 404 do HTTP -->
+  	<error-code>404</error-code>
+  	<location>/404.html</location>
+  </error-page>
+  
+  </web-app>
